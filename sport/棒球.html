@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
+    <meta name="generator" content="Hugo 0.104.2" />
+    <title>棒球</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+
+    <link href="../blog/blog.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, 0.1);
+            border: solid rgba(0, 0, 0, 0.15);
+            border-width: 1px 0;
+            box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+                inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -0.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .nav-scroller a {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+            text-decoration: none;
+        }
+
+        .nav-scroller a:hover {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+            text-decoration: underline;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: auto;
+        }
+
+        .item {
+            background-size: cover !important;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 300px;
+            /* 設定固定高度 */
+            object-fit: cover;
+            /* 確保圖片適應容器大小 */
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.1);
+        }
+
+        .image-container .caption {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.2);
+            /* 半透明背景 */
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        .image-container a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            position: relative;
+        }
+
+        .tag {
+            top: 0px;
+            left: 0px;
+            color: #fff;
+            margin: 0px;
+            padding: 10px;
+            font-size: 12px;
+        }
+
+        .top {
+            position: relative;
+            margin-bottom: 20px;
+            padding-top: 50px;
+            padding-bottom: 10px;
+        }
+
+        .panel-default {
+            position: relative;
+            border-color: hsla(0, 0%, 100%, 0);
+
+            overflow: hidden;
+            height: 600px;
+            margin-bottom: 30px;
+        }
+
+        .fill {
+            width: 100%;
+            height: 100%;
+            background-position: top;
+            background-size: cover;
+            transition: 0.5s;
+        }
+
+        .panel-default:hover .fill {
+            transform: scale(1.1);
+
+        }
+
+        .panel-default:hover {
+            border-radius: 30px;
+            transition: 2s;
+
+        }
+
+
+
+        .narrative {
+            padding-left: 45px;
+            padding-right: 45px;
+        }
+
+        .crumb {
+            font-size: 0.85em;
+            padding: 0;
+            float: left;
+            margin: -5px 0 0;
+        }
+
+        .p_right {
+            right: 0;
+        }
+
+        .offset-t-80 {
+            margin-top: -30px;
+        }
+
+        .individual_bg {
+            position: absolute;
+            background-color: #ffd900;
+            width: 70%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+        }
+
+
+
+        .its {
+            margin-bottom: 20px;
+            transition: color 0.5s;
+        }
+
+        .its a {
+            color: black;
+        }
+
+        .its h4 {
+            font-size: 20px;
+        }
+
+        .its p {
+            font-size: 14px;
+        }
+
+        .its span {
+            font-size: 10px;
+        }
+
+        .its:hover h4,
+        .its:hover p,
+        .its:hover span {
+            color: blue;
+        }
+
+        .its img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .crumb {
+            font-size: 0.85em;
+            padding: 0;
+            float: left;
+            margin: -5px 0 0;
+        }
+
+        main a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .panel-default:hover {
+            border-radius: 30px;
+            transition: 2s;
+
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="blog.css" rel="stylesheet" />
+</head>
+
+
+<body style="background-image: url(../img/leaves-pattern\ \(1\).png);">
+    <div class="loader-wrapper">
+        <div class="la-pacman loading la-3x " style="color: #f6d860">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header class="blog-header lh-1 py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="col-4 pt-1">
+                    <button class="btn btn-default" id="ss">訂閱</button>
+                </div>
+
+
+                <div class="col-4 text-center">
+                    <a class="blog-header-logo demo1" href="./index.html">運動王國</a>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <a class="link-dark" href="#" aria-label="Search" onclick="toggleSearchBox()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3 light"
+                            role="img" viewBox="0 0 24 24">
+                            <title>Search</title>
+                            <circle cx="10.5" cy="10.5" r="7.5" />
+                            <path d="M21 21l-5.2-5.2" />
+                        </svg>
+                    </a>
+
+                    <div id="searchBox">
+                        <input type="text" class="form-control" placeholder="Search...">
+                    </div>
+
+
+                    <button class="btn btn-default" onclick="openForm()">登入</button>
+                    <div class="form-popup" id="myForm">
+                        <form action="/action_page.php" class="form-container">
+                            <h1>Login</h1>
+
+                            <label for="email"><b>Email</b></label>
+                            <input type="text" placeholder="Enter Email" name="email" required>
+
+                            <label for="psw"><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" name="psw" required>
+
+
+                            <button type="submit" class="btns">Login</button>
+                            <button type="button" class="btns cancel" onclick="closeForm()">Close</button>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </header>
+
+
+
+    </div>
+
+    <main class="container mt-4 ">
+        <div class="panel-default" style="text-align: center;">
+            <div class="fill">
+                <img class="img-fluid" src="../img/bas-03.jpg" alt="">
+            </div>
+
+        </div>
+
+
+        <div class="row g-5">
+            <div class="col-md-8">
+
+                <!-- <h3 class="pb-4 mb-4 fst-italic border-bottom">From the Firehose</h3> -->
+                <div class="featured_lish_header mt-4">
+
+
+
+
+                    <h2 class="fst-italic demo" style="text-align: center;">
+                        2024 MLB賽季火熱開打!
+                    </h2>
+
+                    <hr>
+
+
+
+
+                </div>
+                <div class="container pad">
+                    <h3 class="demo mb-4" style="text-align: center; ">熱門文章</h3>
+
+                    <div class="row">
+
+                        <div class="col-4 its">
+                            <a href="https://udn.com/news/story/122629/7994215">
+                                <img class="img-fluid demo2 shadow" src="../img/bas-04.webp" alt="">
+                                <h4>
+                                    鄧愷威大低潮原因為何？ 伸卡球被爆打是關鍵
+
+                                </h4>
+                                <span>May 24, 2024</span>
+                                <p>
+                                    效力舊金山巨人的鄧愷威，三月底完成大聯盟初…
+                                </p>
+
+                            </a>
+
+                        </div>
+                        <div class="col-4 its">
+                            <a href="https://udn.com/news/story/122629/7991825">
+                                <img class="img-fluid demo2 shadow" src="../img/bas-05.webp" alt="">
+                                <h4>
+                                    費城人開季就全力狂奔 爆冷成全聯盟最強隊伍
+
+                                </h4>
+                                <span>May 25, 2024</span>
+                                <p>
+                                    城人隊的核心成員：哈波（Bryce Harper）、波姆（Alec Bohm）、史托特…
+                                </p>
+                            </a>
+                        </div>
+                        <div class="col-4 its">
+                            <a href="https://udn.com/news/story/122629/7991882">
+                                <img class="img-fluid demo2 shadow" src="../img/bas-06.webp" alt="">
+                                <h4>
+                                    中職／二軍好手上一軍機會少 悍將調度恐消減球員競爭感
+
+                                </h4>
+                                <span>May 25, 2024</span>
+                                <p>
+                                    中信總教練平野惠一日前接受媒體採訪時表示…
+                                </p>
+                            </a>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-4 its">
+                            <a href="https://udn.com/news/story/7001/7995149">
+                                <img class="img-fluid demo2 shadow" src="../img/bas-07.webp" alt="">
+                                <h4>
+                                    棒球／前5局僅被敲1安 陳偉殷談第6局亂流：球跑到紅中
+                                </h4>
+                                <span>May 23, 2024</span>
+                                <p>
+                                    效力獨立聯盟長島鴨隊的台灣左投陳偉殷今天…
+                                </p>
+                            </a>
+                        </div>
+                        <div class="col-4 its">
+                            <a href="https://udn.com/news/story/6999/7995054">
+                                <img class="img-fluid demo2 shadow" src="../img/bas-08.webp" alt="">
+                                <h4>
+                                    MLB／大谷翔平5支0讓出打擊王 雙重賽第2場休兵有原因
+                                </h4>
+                                <span>May 22, 2024</span>
+                                <p>
+                                    道奇隊與大都會之戰因日前下雨延期，今天改打雙重賽，日本球星大谷翔平…
+                                </p>
+                            </a>
+                        </div>
+                        <div class="col-4 its">
+                            <a href="https://udn.com/news/story/122629/7994465">
+                                <img class="img-fluid demo2 shadow" src="../img/bas-09.webp" alt="">
+                                <h4>
+                                    中職／獅隊外野太擁擠 雙傑回歸內野才能戰力最佳化
+
+                                </h4>
+                                <span>May 24, 2024</span>
+                                <p>
+                                    統一獅這幾年面臨球員世代交替，2022年歡送潘武雄後，高國慶及…
+                                </p>
+                            </a>
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="position-sticky" style="top: 2rem">
+                    <div class="p-4 mb-3 bg-light rounded">
+                        <h4 class="fst-italic">介紹</h4>
+                        <p class="mb-0">
+                            歡迎來到我們的運動部落格網站！這裡是所有運動愛好者的天堂，無論您是專業運動員、健身達人，還是僅僅喜歡觀看比賽的觀眾，我們都致力於為您提供最新、最全面的運動資訊和見解。
+                        </p>
+                    </div>
+                    <div class="p-4 " style="text-align: center;">
+                        <h4>目錄</h4>
+                        <ol class="list-unstyled mb-0 sidebar">
+                            <li><a class="p-2 link-dark" href="./index.html">首頁</a></li>
+                            <li><a class="p-2 link-dark" href="./籃球.html">籃球</a></li>
+                            <li><a class="p-2 link-dark" href="./棒球.html">棒球</a></li>
+                            <li><a class="p-2 link-dark" href="./馬拉松.html">馬拉松</a></li>
+                            <li><a class="p-2 link-dark" href="./運動鞋.html">運動鞋</a></li>
+                        </ol>
+                    </div>
+
+
+
+                    <div class="p-4 right" style="text-align: center;">
+                        <h4>聯絡我們</h4>
+                        <ol class="list-unstyled mb-0">
+                            <a href="https://www.facebook.com/dallasmavs/?locale=zh_TW">
+                                <li><i class="fa-brands fa-square-facebook"></i></li>
+                            </a>
+                            <a href="https://x.com/dallasmavs?lang=zh-Hant">
+                                <li><i class="fa-brands fa-x-twitter"></i></li>
+                            </a>
+                            <a href="https://www.instagram.com/dallasmavs/">
+                                <li><i class="fa-brands fa-instagram"></i></li>
+                            </a>
+                            <a href="https://www.facebook.com/dallasmavs/?locale=zh_TW">
+                                <li><i class="fa-brands fa-line"></i></li>
+                            </a>
+                            <a href="./聯絡.html">
+                                <li><i class="fa-solid fa-envelope"></i></i></li>
+                            </a>
+
+                        </ol>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="blog-footer">
+        <p>
+            更多資訊請與我聯絡
+            <a href="https://getbootstrap.com/">@@@@@</a> by
+            <a href="https://twitter.com/mdo">@123456</a>.
+        </p>
+        <p>
+            <a href="#">Back to top</a>
+        </p>
+    </footer>
+    <a href="#" class="pagetop">TOP</a>
+    <script>
+        function toggleSearchBox() {
+            var searchBox = document.getElementById('searchBox');
+            if (searchBox.style.display === 'none' || searchBox.style.display === '') {
+                searchBox.style.display = 'block';
+            } else {
+                searchBox.style.display = 'none';
+            }
+        }
+        document.getElementById('ss').addEventListener('click', function (event) {
+            event.preventDefault();
+            alert('請先登入');
+        });
+        $(document).ready(function () {
+            setTimeout(function () {
+                $(".loader-wrapper").fadeOut(1000);
+            }, 1000);
+        });
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>
